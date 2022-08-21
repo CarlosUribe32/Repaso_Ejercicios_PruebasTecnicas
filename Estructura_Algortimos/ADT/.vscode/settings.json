@@ -1,0 +1,6 @@
+{
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "C:\\Users\\Carlos\\Documents\\Proyectos_Candre\\Repaso_Ejercicios_PruebasTecnicas\\Estructura_Algortimos\\algs4.jar"
+    ]
+}

@@ -1,0 +1,8 @@
+{
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "c:\\Users\\jcugl\\Downloads\\algs4.jar",
+        "opencsv-5.2.jar",
+        "jfreechart-1.5.0.jar"
+    ]
+}

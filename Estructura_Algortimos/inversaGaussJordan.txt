@@ -1,0 +1,52 @@
+public Matriz inversaPorGaussJordan() throws Exception
+    {
+        if(filas!=columnas)
+            throw new Exception("Solo las matrices cuadradas tienen inversa");
+        
+        float[][] original = matriz;
+        float[][] identidad = new float[filas][filas];
+        for (int i = 0; i < identidad.length; i++) 
+        {
+            for (int j = 0; j < identidad.length; j++) 
+            {
+                if(i==j)
+                    identidad[i][j]=1;
+            }
+        }
+
+        for (int i = 0; i < original.length; i++) 
+        {
+            float div = original[i][i];
+            for (int j = 0; j < identidad.length; j++) 
+            {
+                original[i][j]= original[i][j]/div;
+                identidad[i][j] = identidad[i][j]/div;
+            }
+            for (int f = 0; f < original.length; f++) 
+            {
+                if(f!=i)
+                {
+                    div = -1*original[f][i];
+                    for (int c = 0; c < original.length; c++) 
+                    {
+                        original[f][c] = original[f][c]+original[i][c]*div;
+                        identidad[f][c] = identidad[f][c]+identidad[i][c]*div;
+                    }
+                }
+            }
+        }
+
+        for (int i = 0; i < original.length; i++) 
+        {
+            for (int j = 0; j < original.length; j++) 
+            {
+                if(i==j && original[i][j]!=1)
+                    throw new Exception("Esta matriz no tiene inversa");
+                else if (i!=j && original[i][j]!=0)
+                    throw new Exception("Esta matriz no tiene inversa");
+            }
+        }
+        Matriz inversa = new Matriz(filas, filas);
+        inversa.llenado(identidad);
+        return inversa;
+    }

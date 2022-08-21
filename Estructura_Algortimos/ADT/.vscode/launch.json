@@ -1,0 +1,43 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - contador",
+            "request": "launch",
+            "mainClass": "Ejemplos.contador",
+            "projectName": "ADT_565dd832",
+            "vmArgs": "-enableassertions"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Pruebapuntos",
+            "request": "launch",
+            "mainClass": "Ejemplos.Pruebapuntos",
+            "projectName": "ADT_565dd832"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - ejemplocontador",
+            "request": "launch",
+            "mainClass": "Ejemplos.ejemplocontador",
+            "projectName": "ADT_565dd832"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch) - Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-QuickStart<ADT_565dd832>",
+            "request": "launch",
+            "mainClass": "Ejemplos.QuickStart",
+            "projectName": "ADT_565dd832"
+        }
+    ]
+}

@@ -1,0 +1,36 @@
+public static double correlation(String simbolo0, String simbolo1, Date fecha0, Date fecha1) throws Exception
+    {
+        if(!porSimbolos.contains(simbolo0) || !porSimbolos.contains(simbolo1))
+            throw new Exception("Uno de los simbolos no se encuentra en la estructura");
+        Date inicio=null, fin=null;
+        if(fecha0.compareTo(fecha1)>0){
+            inicio = fecha1;
+            fin = fecha0;
+        }
+        else{
+            inicio = fecha0;
+            fin = fecha1;
+        }
+        double sumXY=0, sumX=0, sumY=0, sumX2=0, sumY2=0, n=0;
+        for (GregorianCalendar d : porFechas.keys()) {
+            if(d.getTime().compareTo(inicio)>=0 && d.getTime().compareTo(fin)<=0)
+            {
+                Bag<PairData> bolsaPd = porFechas.get(d);
+                PairData a=null, b=null;
+                for (PairData pd : bolsaPd) {
+                    if(pd.getSymbol().equals(simbolo0))
+                        a = pd;
+                    else if(pd.getSymbol().equals(simbolo1))
+                        b = pd;
+                }
+                n++;
+                sumXY += a.getClose()*b.getClose();
+                sumX += a.getClose();
+                sumY += b.getClose();
+                sumX2 += Math.pow(a.getClose(), 2);
+                sumY2 += Math.pow(b.getClose(), 2);
+            }
+        }
+        double r = (n*sumXY - sumX*sumY)/Math.sqrt((n*sumX2 - Math.pow(sumX, 2))*(n*sumY2 - Math.pow(sumY, 2)));
+        return r;
+    }
